@@ -1,0 +1,69 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        applicationId "com.blankj.appframe"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled true
+            useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled true
+            useProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    testOptions.unitTests.all {
+        testLogging {
+            events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    // support
+    compile "com.android.support:support-v4:$rootProject.ext.supportVersion"
+    compile "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
+    compile "com.android.support:recyclerview-v7:$rootProject.ext.supportVersion"
+
+    // rx
+    compile "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxandroidVersion"
+    compile "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxjavaVersion"
+
+    // dagger
+    compile "com.google.dagger:dagger-android:$rootProject.ext.daggerVersion"
+    compile "com.google.dagger:dagger-android-support:$rootProject.ext.daggerVersion"
+    compile "com.google.dagger:dagger-android-processor:$rootProject.ext.daggerVersion"
+
+    // retrofit
+    compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    compile "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+    compile "com.squareup.retrofit2:converter-scalars:$rootProject.ext.retrofitVersion"
+
+    // okhttp
+    compile "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttpVersion"
+    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpVersion"
+
+    // testCompile
+    androidTestCompile "junit:junit:$rootProject.ext.junitVersion"
+
+
+}
