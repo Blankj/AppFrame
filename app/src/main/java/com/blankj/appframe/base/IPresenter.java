@@ -8,5 +8,10 @@ package com.blankj.appframe.base;
  *     desc  :
  * </pre>
  */
-public class BaseView {
+public interface IPresenter<V extends IView> {
+
+    void attachView(V view);
+
+    void detachView();
+
 }

@@ -1,7 +1,5 @@
 package com.blankj.appframe.base;
 
-import android.support.v7.app.AppCompatActivity;
-
 /**
  * <pre>
  *     author: Blankj
@@ -10,5 +8,8 @@ import android.support.v7.app.AppCompatActivity;
  *     desc  :
  * </pre>
  */
-public class BaseActivity extends AppCompatActivity {
+public interface IView<T extends IPresenter> {
+
+    void setPresenter(T presenter);
+
 }

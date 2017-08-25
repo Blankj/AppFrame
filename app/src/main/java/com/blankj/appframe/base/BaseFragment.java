@@ -9,4 +9,6 @@ package com.blankj.appframe.base;
  * </pre>
  */
 public class BaseFragment {
+
+
 }
